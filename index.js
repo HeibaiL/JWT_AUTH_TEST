@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
 require("dotenv").config();
 const registrationRoute = require("./routes/Registration");
+const loginRoute = require("./routes/Login");
 
 app.use(bodyParser.json());
 app.use('/registration', registrationRoute);
+app.use('/login', loginRoute);
+
 
 app.get("/", (req, res) => {
   res.send("<h1>it's your home page</h1>");
