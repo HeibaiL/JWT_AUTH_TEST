@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 mongoose.connect(
     process.env.DB_CONNECT_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
-  ()=>console.log("Connected to DB")).catch(err=>console.log("We got err",err))
+  ()=>console.log("Connected to DB"))
 
   
 app.listen(3000);
