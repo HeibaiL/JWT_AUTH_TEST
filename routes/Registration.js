@@ -6,11 +6,9 @@ const { registrationValidation } = require("../schemaModels/validationSchemas");
 
 route.get("/", async (req, res) => {
   const users = await User.find();
-  res.json(users);
+  res.send("<h1>Registration page</h1>");
 });
-//TODO:BODY PARSER ASK
 
-//USER REGISTRATION
 route.post("/", async (req, res) => {
   const { error } = registrationValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -27,7 +25,7 @@ route.post("/", async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    res.send(savedUser);
+    res.send({ user: savedUser._id });
   } catch (err) {
     console.log("Error when saving", err);
   }
